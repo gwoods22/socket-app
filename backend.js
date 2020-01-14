@@ -4,8 +4,8 @@ const express = require("express")();
 const http = require('http').Server(express);
 const io = require('socket.io')(http);
 
+//Home page socket setup
 let documents = {};
-
 io.on("connection", socket => {
   let previousId;
   const safeJoin = currentId => {
@@ -30,6 +30,22 @@ io.on("connection", socket => {
     documents[doc.id] = doc;
     socket.to(doc.id).emit("document", doc);
   });
+
+  // Basic page socket setup
+  let basic = '';
+  socket.on("editBasic", doc => {
+    basic = doc;
+    socket.to('basicSocket').emit("basicEvent", doc);
+    console.log(`edit basic to "${doc}"`);
+  });
+
+  socket.on("getBasic", () => {
+    safeJoin('basicSocket');
+    socket.emit("basicEvent", basic);
+    console.log(`get "${basic}"`);
+  });
+
+
 
   io.emit("documents", Object.keys(documents));
 });
