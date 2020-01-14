@@ -1,0 +1,15 @@
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  textarea {
+    border: 5px solid black;
+    width: 70%;
+    margin-top: 2rem;
+    height: 10rem;
+    font-size: 25px;
+    resize: none;
+    padding: 20px  0px  20px  15px;
+  }
+}
