@@ -20,7 +20,7 @@
     "minimist": "^1.2.6",
     "ngx-socket-io": "^3.0.1",
     "rxjs": "~6.4.0",
-    "socket.io": "^2.4.0",
+    "socket.io": "^2.5.0",
     "tslib": "^1.10.0",
     "webpack-subresource-integrity": "^1.5.1",
     "zone.js": "~0.9.1"
